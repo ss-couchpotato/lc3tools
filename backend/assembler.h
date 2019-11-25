@@ -28,6 +28,8 @@ namespace core
         Assembler & operator=(Assembler const &) = delete;
         ~Assembler(void) = default;
 
+        SymbolTable symbol_table;
+
         std::shared_ptr<std::stringstream> assemble(std::istream & buffer);
         void setFilename(std::string const & filename) { logger.setFilename(filename); }
 

@@ -7,6 +7,7 @@
 #include "console_printer.h"
 #include "console_inputter.h"
 #include "framework.h"
+#include "aliases.h"
 
 struct CLIArgs
 {
@@ -27,6 +28,8 @@ void testTeardown(lc3::sim & sim);
 std::vector<TestCase> tests;
 uint32_t verify_count;
 uint32_t verify_valid;
+
+lc3::core::SymbolTable table;
 
 bool endsWith(std::string const & search, std::string const & suffix)
 {
@@ -142,6 +145,7 @@ int main(int argc, char * argv[])
     uint32_t total_possible_points = 0;
 
     if(valid_program) {
+        table = assembler.getSymbolTable();
         for(TestCase const & test : tests) {
             BufferedPrinter sim_printer(args.print_output);
             StringInputter sim_inputter;

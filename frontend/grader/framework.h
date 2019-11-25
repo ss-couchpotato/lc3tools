@@ -18,6 +18,7 @@ struct TestCase;
 extern std::vector<TestCase> tests;
 extern uint32_t verify_count;
 extern uint32_t verify_valid;
+extern lc3::core::SymbolTable table;
 
 class BufferedPrinter : public lc3::utils::IPrinter
 {

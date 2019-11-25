@@ -171,6 +171,10 @@ namespace lc3
 
         optional<std::string> assemble(std::string const & asm_filename);
 
+        lc3::core::SymbolTable getSymbolTable(void) {
+          return assembler.symbol_table;
+        }
+
         void setPropagateExceptions(void);
         void clearPropagateExceptions(void);
         void setEnableLiberalAsm(bool enable);

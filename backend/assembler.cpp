@@ -62,6 +62,8 @@ std::shared_ptr<std::stringstream> lc3::core::Assembler::assemble(std::istream &
             logger.printf(PrintType::P_ERROR, true, "assembly failed (pass %d)", fail_pass);
         }
         throw lc3::utils::exception("assembly failed");
+    } else {
+      symbol_table = symbols.second;
     }
 
     auto ret = std::make_shared<std::stringstream>(std::ios_base::in | std::ios_base::out | std::ios_base::binary);
