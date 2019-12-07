@@ -139,13 +139,12 @@ int main(int argc, char * argv[])
         return 1;
     }
 
-    setup();
-
     uint32_t total_points_earned = 0;
     uint32_t total_possible_points = 0;
 
     if(valid_program) {
         table = assembler.getSymbolTable();
+        setup();
         for(TestCase const & test : tests) {
             BufferedPrinter sim_printer(args.print_output);
             StringInputter sim_inputter;
